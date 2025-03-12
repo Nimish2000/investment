@@ -1,19 +1,23 @@
 {
-  "name": "neorac_investment",
+  "name": "node-auth-app",
   "version": "1.0.0",
-  "description": "Investment Application",
-  "main": "index.js",
+  "description": "Node.js JWT Authentication App",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "author": "Nimish",
-  "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^3.0.2",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.12.1",
-    "nodemon": "^3.1.9"
-  }
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^6.14.2",
+    "mongoose": "^8.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "author": "",
+  "license": "ISC"
 }
