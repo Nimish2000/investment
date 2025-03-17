@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
@@ -8,6 +9,19 @@ dotenv.config();
 
 // Initialize express app
 const app = express();
+
+app.use(
+  cors({
+    origin: "*", // Replace '*' with 'http://localhost:5500' for better security
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// Handle OPTIONS preflight requests
+app.options("*", (req, res) => {
+  res.status(200).send();
+});
 
 // Connect to database
 connectDB();
