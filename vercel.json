@@ -13,7 +13,7 @@
     }
   ],
   "functions": {
-    "config/*.js": {
+    "server.js": {
       "includeFiles": ["node_modules/**"]
     }
   }
