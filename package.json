@@ -15,7 +15,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^6.14.2",
     "mongoose": "^8.12.1",
-    "whatwg-url": "^14.2.0"
+    "whatwg-url": "^14.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
