@@ -21,7 +21,7 @@ app.get("/", (req, res) => res.send("Hello World"));
 app.use("/api/auth", authRoutes);
 
 // Start server
-const PORT = process.env.PORT || 3000; // Use the port from the .env file or fallback to 5001
+const PORT = process.env.PORT || 3001; // Use the port from the .env file or fallback to 5001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
