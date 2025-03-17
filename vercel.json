@@ -13,7 +13,7 @@
     }
   ],
   "functions": {
-    "server.js": {
+    "api/*.js": {
       "includeFiles": ["node_modules/**"]
     }
   }
