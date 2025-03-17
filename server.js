@@ -2,7 +2,6 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
-const cors = require("cors");
 
 // Load environment variables
 dotenv.config();
@@ -15,7 +14,6 @@ connectDB();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
 
 app.get("/", (req, res) => res.send("Hello World"));
 
