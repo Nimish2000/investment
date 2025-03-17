@@ -14,7 +14,7 @@
   ],
   "functions": {
     "server.js": {
-      "includeFiles": ["node_modules/**"]
+      "includeFiles": "node_modules/**"
     }
   }
 }
