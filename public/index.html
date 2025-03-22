@@ -112,7 +112,7 @@
         document.getElementById("loader").style.display = "block";
         try {
           const response = await fetch(
-            "http://localhost:3001/api/userInvestments/all"
+            "https://investment-mauve.vercel.app//api/userInvestments/all"
           );
           const responseData = await response.json();
           document.getElementById("loader").style.display = "none";
