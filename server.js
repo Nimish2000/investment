@@ -3,6 +3,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
+const investmentRoutes = require("./routes/investment");
+const portfolioRoutes = require("./routes/portfolio");
 
 // Load environment variables
 dotenv.config();
@@ -33,6 +35,8 @@ app.get("/", (req, res) => res.send("Hello World"));
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api", investmentRoutes);
+app.use("/api/portfolio", portfolioRoutes);
 
 // Start server
 const PORT = process.env.PORT || 3001; // Use the port from the .env file or fallback to 5001
