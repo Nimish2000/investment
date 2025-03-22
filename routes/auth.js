@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Signup route
 router.post("/signup", async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, phoneNumber } = req.body;
 
   // Basic validation
   if (!username || !email || !password) {
@@ -26,7 +26,12 @@ router.post("/signup", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
-    const newUser = new User({ username, email, password: hashedPassword });
+    const newUser = new User({
+      username,
+      email,
+      password: hashedPassword,
+      phoneNumber,
+    });
 
     // Save user to DB
     await newUser.save();
