@@ -1,10 +1,46 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
+const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const DashboardUser = require("../models/DashboardUser");
 
 const router = express.Router();
+
+router.post("/request-password-reset", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    // Check if user exists
+    const user = await User.findOne({ email });
+    // if (!user) {
+    //   return res.status(400).json({ msg: "User not found" });
+    // }
+    const resetLink = "http://localhost:3000/reset-password";
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "nimishbajaj88@gmail.com",
+        pass: "hrlh tizu qggj pzrk",
+      },
+    });
+
+    await transporter.sendMail({
+      from: '"Your App" <your-email@gmail.com>',
+      to: email,
+      subject: "Reset your password",
+      html: `<p>Hello ${user?.username},</p>
+             <p>Click the link below to reset your password:</p>
+             <a href="${resetLink}">Reset Password</a>
+             <p>This link will expire in 15 minutes.</p>`,
+    });
+
+    return res.json({ message: "Reset link sent to email" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ msg: "Server error" });
+  }
+});
 
 router.post("/dashboard/signup", async (req, res) => {
   const { email, password } = req.body;
