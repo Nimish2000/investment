@@ -14,7 +14,7 @@ const investmentRoutes = require("./routes/investment");
 const portfolioRoutes = require("./routes/portfolio");
 const userInvestmentsRoutes = require("./routes/userInvestment");
 const chatRoutes = require("./routes/chatRoutes");
-const marketplaceRoutes = require("./routes/marketplace");
+const marketplaceRoutes = require("./routes/marketPlace");
 // Sockets
 const { setupChatSocket } = require("./sockets/chatSocket");
 
@@ -63,6 +63,7 @@ app.use("/api/portfolio", portfolioRoutes);
 app.use("/api/userInvestments", userInvestmentsRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/marketplace", marketplaceRoutes);
+
 // Socket Setup
 setupChatSocket(io);
 
